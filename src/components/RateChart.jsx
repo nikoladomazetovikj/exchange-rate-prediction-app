@@ -1,26 +1,28 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Typography } from '@mui/material';
 
-const RateChart = ({ xAxis, series }) => {
+const RateChart = ({ rateData }) => {
     const chartStyle = {
-        backgroundColor: 'rgba(255, 255, 255, 0.1)', // Set chart background color
-        borderRadius: '5px', // Add border radius for aesthetics
-        padding: '10px', // Add padding for spacing
+        borderRadius: '5px',
+        padding: '10px',
     };
 
-    // Convert date strings to Date objects
-    const parsedXAxis = xAxis.map(item => ({
-        data: item.data.map(dateString => new Date(dateString))
-    }));
+    const rates = rateData.map(item => parseFloat(item.rate));
+    const dates = rateData.map(item => new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+
 
     return (
         <div style={chartStyle}>
             <Typography variant="h6" align="center" style={{ color: '#FFF' }}>Exchange Rate</Typography>
             <LineChart
-                xAxis={parsedXAxis}
-                series={series}
                 width={500}
-                height={300}
+                height={500}
+                series={[
+                    {
+                        data: rates, label: 'Rates',
+                    }
+                ]}
+                xAxis={[{ scaleType: 'point', data: dates }]}
             />
         </div>
     );

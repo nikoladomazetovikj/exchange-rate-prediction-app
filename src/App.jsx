@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Grid, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import RateChart from './components/RateChart.jsx';
+import PredictionChart from "./components/PredictionChart.jsx";
 
 const theme = createTheme({
     palette: {
@@ -46,7 +47,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Container style={{ paddingTop: 20 }}>
-                <Typography variant="h4" align="center" gutterBottom>Exchange Rate Analysis</Typography>
+                <Typography variant="h4" align="center" gutterBottom>Exchange Rate Predictions</Typography>
                 <Typography variant="body1" align="center" paragraph>
                     This page displays the predicted exchange rates between USD and MKD on a weekly basis.
                     The predictions are made using a Multilayer Perceptron (MLP) regression model.
@@ -60,7 +61,7 @@ function App() {
                             <RateChart rateData={ratesData} />
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <RateChart rateData={predictionsData} />
+                            <PredictionChart rateData={predictionsData} />
                         </Grid>
                     </Grid>
                 )}

@@ -1,7 +1,7 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Typography } from '@mui/material';
 
-const RateChart = ({ rateData }) => {
+const PredictionChart = ({ rateData }) => {
     const chartStyle = {
         borderRadius: '5px',
         padding: '10px',
@@ -13,7 +13,7 @@ const RateChart = ({ rateData }) => {
 
     return (
         <div style={chartStyle}>
-            <Typography variant="h6" align="center" style={{ color: '#FFF' }}>Previous Week Rates</Typography>
+            <Typography variant="h6" align="center" style={{ color: '#FFF' }}>Exchange Rate Prediction</Typography>
             <LineChart
                 width={500}
                 height={500}
@@ -28,4 +28,4 @@ const RateChart = ({ rateData }) => {
     );
 };
 
-export default RateChart;
+export default PredictionChart;

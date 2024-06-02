@@ -16,7 +16,7 @@ const RateChart = ({ rateData }) => {
             <Typography variant="h6" align="center" style={{ color: '#FFF' }}>Previous Week Rates</Typography>
             <LineChart
                 width={500}
-                height={500}
+                height={400}
                 series={[
                     {
                         data: rates, label: 'Rates',

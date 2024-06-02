@@ -4,6 +4,7 @@ import { Container, Grid, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import RateChart from './components/RateChart.jsx';
 import PredictionChart from './components/PredictionChart.jsx';
+import PredictionTable from "./components/PredictionTable.jsx";
 
 const theme = createTheme({
     palette: {
@@ -75,6 +76,9 @@ function App() {
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <PredictionChart rateData={predictionsData} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <PredictionTable rateData={predictionsData} />
                         </Grid>
                     </Grid>
                 )}

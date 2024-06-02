@@ -5,33 +5,49 @@ import RateChart from './components/RateChart.jsx';
 
 function App() {
     const [ratesData, setRatesData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [predictionsData, setPredictionsData] = useState([]);
+    const [loadingRates, setLoadingRates] = useState(true);
+    const [loadingPredictions, setLoadingPredictions] = useState(true);
 
     useEffect(() => {
-        fetchData();
+        fetchRatesData();
+        fetchPredictionsData();
     }, []);
 
-    const fetchData = async () => {
+    const fetchRatesData = async () => {
         try {
             const response = await axios.get('http://localhost/api/rates');
             setRatesData(response.data.data);
         } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching rates data:', error);
         } finally {
-            setLoading(false);
+            setLoadingRates(false);
         }
     };
 
+    const fetchPredictionsData = async () => {
+        try {
+            const response = await axios.get('http://localhost/api/predictions');
+            setPredictionsData(response.data.data);
+        } catch (error) {
+            console.error('Error fetching predictions data:', error);
+        } finally {
+            setLoadingPredictions(false);
+        }
+    };
 
     return (
         <Container style={{ paddingTop: 20 }}>
             <Typography variant="h4" align="center" gutterBottom>Exchange Rate Analysis</Typography>
-            {loading ? (
+            {loadingRates || loadingPredictions ? (
                 <Typography variant="h6" align="center">Loading...</Typography>
             ) : (
                 <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <RateChart rateData={ratesData}/>
+                    <Grid item xs={6}>
+                        <RateChart rateData={ratesData} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <RateChart rateData={predictionsData} />
                     </Grid>
                 </Grid>
             )}

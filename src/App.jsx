@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import RateChart from './components/RateChart.jsx';
 import PredictionChart from './components/PredictionChart.jsx';
 import PredictionTable from "./components/PredictionTable.jsx";
+import {Gauge} from "@mui/x-charts";
 
 const theme = createTheme({
     palette: {
@@ -56,7 +57,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Container maxWidth="xl" >
-                <Typography variant="h4" align="center">Exchange Rate Predictions</Typography>
+                <Typography variant="h4" align="center" marginTop={5}>Exchange Rate Predictions</Typography>
                 <Typography variant="body1" align="center" paragraph>
                     This page displays the predicted exchange rates between USD and MKD on a weekly basis.
                     The predictions are made using a Multilayer Perceptron (MLP) regression model.
@@ -66,6 +67,14 @@ function App() {
                     The data is sourced from the National Bank of Macedonia and is updated weekly to provide the latest insights
                     into the currency exchange trends. This ensures that the predictions are based on the most recent and relevant data available.
                 </Typography>
+                <Grid container justifyContent="center" alignItems="center" spacing={2}>
+                    <Grid item>
+                        <Typography variant="h6" align="center">Max Absolute Error</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Gauge width={100} height={100} value={0.38} startAngle={-90} endAngle={90} />
+                    </Grid>
+                </Grid>
                 {loadingRates || loadingPredictions ? (
                     <Typography variant="h6" align="center">Loading...</Typography>
                 ) : (

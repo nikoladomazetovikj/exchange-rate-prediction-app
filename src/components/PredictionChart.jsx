@@ -19,7 +19,7 @@ const PredictionChart = ({ rateData }) => {
                 height={400}
                 series={[
                     {
-                        data: rates, label: 'Rates',
+                        data: rates, label: 'Rates', color: '#59a14f'
                     }
                 ]}
                 xAxis={[{ scaleType: 'point', data: dates }]}

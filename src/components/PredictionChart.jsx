@@ -13,7 +13,7 @@ const PredictionChart = ({ rateData }) => {
 
     return (
         <div style={chartStyle}>
-            <Typography variant="h6" align="center" style={{ color: '#FFF' }}>Exchange Rate Prediction</Typography>
+            <Typography variant="h6" align="center" style={{ color: '#FFF' }}>Current Week Prediction</Typography>
             <LineChart
                 width={500}
                 height={400}

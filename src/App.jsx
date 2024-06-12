@@ -18,7 +18,6 @@ const theme = createTheme({
             fontSize: '1.2rem',
         },
     },
-
 });
 
 function App() {
@@ -56,8 +55,8 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container style={{ paddingTop: 20 }}>
-                <Typography variant="h4" align="center" >Exchange Rate Predictions</Typography>
+            <Container maxWidth="xl" >
+                <Typography variant="h4" align="center">Exchange Rate Predictions</Typography>
                 <Typography variant="body1" align="center" paragraph>
                     This page displays the predicted exchange rates between USD and MKD on a weekly basis.
                     The predictions are made using a Multilayer Perceptron (MLP) regression model.
@@ -70,14 +69,14 @@ function App() {
                 {loadingRates || loadingPredictions ? (
                     <Typography variant="h6" align="center">Loading...</Typography>
                 ) : (
-                    <Grid container spacing={3} >
-                        <Grid item xs={12} md={6}>
+                    <Grid container spacing={3} alignItems="stretch">
+                        <Grid item xs={12} lg={5}>
                             <RateChart rateData={ratesData} />
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} lg={5}>
                             <PredictionChart rateData={predictionsData} />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} lg={2}>
                             <PredictionTable rateData={predictionsData} />
                         </Grid>
                     </Grid>

@@ -1,22 +1,24 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 
 const PredictionTable = ({ rateData }) => {
+    const getDayName = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', { weekday: 'long' });
+    };
+
     return (
-        <TableContainer component={Paper} style={{ marginTop: 20 }}>
-            <Typography variant="h6" align="center" gutterBottom>
-                Prediction Data Table
-            </Typography>
+        <TableContainer component={Paper}>
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center">Date</TableCell>
+                        <TableCell align="center">Day</TableCell>
                         <TableCell align="center">Rate</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rateData.map((row, index) => (
                         <TableRow key={index}>
-                            <TableCell align="center">{row.date}</TableCell>
+                            <TableCell align="center">{getDayName(row.date)}</TableCell>
                             <TableCell align="center">{row.rate}</TableCell>
                         </TableRow>
                     ))}
@@ -27,3 +29,4 @@ const PredictionTable = ({ rateData }) => {
 };
 
 export default PredictionTable;
+

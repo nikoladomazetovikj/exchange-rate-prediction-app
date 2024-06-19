@@ -1,8 +1,26 @@
-# React + Vite
+# Exchange Rate Prediction
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requirements
 
-Currently, two official plugins are available:
+>>Node (LTS)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Setup
+
+- Clone this repository on your local machine:
+
+```bash
+git clone {repo_url}
+```
+
+- Install `node` packages:
+
+```bash
+npm install
+```
+
+- Start server:
+
+```bash
+npm run dev
+```
